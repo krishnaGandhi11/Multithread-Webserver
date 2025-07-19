@@ -1,4 +1,4 @@
-# Multithread-WebServer
+# Multithread-WebServer in JAVA
 
 A simple Java web server implementation demonstrating both multi-threaded and thread pool approaches for handling multiple client connections concurrently.
 
@@ -60,6 +60,24 @@ java MultiThreaded.Client
 Server is listening on port 9901
 Hello from server /127.0.0.1
 ```
+
+## Load Testing with JMeter
+
+You can use [Apache JMeter](https://jmeter.apache.org/) to test the performance and concurrency of this server.
+
+### Steps:
+
+1. **Download and install JMeter** from [here](https://jmeter.apache.org/download_jmeter.cgi).
+2. **Start your server** (thread-per-client or thread pool model).
+3. **Open JMeter** and create a new test plan:
+    - Add a **Thread Group** (set number of users/threads and loop count).
+    - Add a **TCP Sampler**:
+        - Set the server’s IP (usually `localhost`) and port (`9901`).
+        - Set the message to send (e.g., `Hello from client`).
+    - Add a **Listener** (e.g., View Results Tree) to see responses.
+4. **Run the test** and observe how your server handles multiple concurrent connections.
+
+This helps you benchmark and analyze the scalability of your multithreaded server.
 
 ## License
 
